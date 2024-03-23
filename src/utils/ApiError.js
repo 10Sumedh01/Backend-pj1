@@ -4,7 +4,7 @@ class ApiError extends Error {
         this.message = message;
         this.errors = errors;
         this.data = null;
-        this.success = false;
+        this.success = false; //Error BOOO!
 
         if (stack) {
             this.stack = stack
