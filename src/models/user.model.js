@@ -29,7 +29,7 @@ const userSchema = new Schema(
             type: String,//cloudnary urls
             required: true,
         },
-        coverImg:{
+        coverImage:{
             type: String,//cloudnary urls
         },
         watchHistory:[
@@ -54,7 +54,7 @@ const userSchema = new Schema(
 userSchema.pre('save', async function (next){  // WE can use arrow functions coz it doesn't have current context of userScheme
     if (!this.isModified("password")) return next(); // if there is no change in password then return next()
 
-    this.password = await bcrypt.hash(this.password);
+    this.password = await bcrypt.hash(this.password,10);
     next();
 })
 
